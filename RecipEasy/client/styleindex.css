@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: #d45b05;
+  }
+
+header{
+    position: fixed;
+    top : 0;
+    left : 0;
+    width: 100%;
+    padding: 15px 100px;
+    z-index:10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fbece4;
+}
+
+header .logo 
+{
+    color:#111;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header .logo span
+{
+    color:#d45b05
+    ;
+}
+
+
+header .navigation {
+    position: relative;
+    display: flex;
+}
+
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    font-weight: 300;
+}
+
+header .navigation li a:hover
+{
+    color : #d45b05
+    ;
+}
+
+footer{
+    /*padding: 17px 10px -3px 10px;*/
+    text-align: center;
+    /*
+    background-color: rgb(176, 173, 173);*/
+    background-color: #fbece4;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+}
+
+footer p{
+    margin-top: 5px;
+}
+
+footer .about li{
+    margin-top: 0px;
+    font-size: 13px;
+    font-style: italic;
+    color: #1a1919;
+}
+
+
+@media (max-width: 991px) {
+    header{
+        padding: 10px 20px;
+    }
+    header .navigation{
+        display: none;
+    }
+    header .navigation.active{
+        width: 100%;
+        height: calc(100% - 68px);
+        position: fixed;
+        top: 65px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #fbece4;
+    }
+
+    header .navigation li{
+        margin-left: 0;
+    }
+
+    header .navigation li a{
+        color:#111;
+        font-size: 1.4em;
+    }
+
+    .menuToggle{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: url(/components/img/menu.png);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
+
+    .menuToggle.active{
+        background: url(/components/img/close.webp);
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

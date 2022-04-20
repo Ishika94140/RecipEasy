@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Index</title>
+        <link rel="stylesheet" href="styleindex.css">
+
+        <!-- Load Vue followed by Vue Router -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+          <header>
+            <a href="#" class="logo"> Recip'Easy<span>.</span></a>
+            <div class="menuToggle" onclick="toggleMenu();"></div>
+
+            <!-- Toolbar access if user is connected -->
+            <ul class="navigation" v-if="connecte">
+                <li><router-link to='/'><a href="#">Home</a></router-link></li>
+                <li><router-link to='/login'><a href="#login">Login</a></router-link></li>
+                <li><router-link to='/recipies'><a href="#recipies">Recipies</a></router-link></li>
+                <li><router-link to="/lessons"><a href="#courses">Courses</a></router-link></li>
+                <li><router-link to="/about"><a href="#about">About</a></router-link></li>
+                <li><router-link to="/contact"><a href="#contact">Contact</a></router-link></li>
+                <li><router-link to='/faq'><a href="#faq">FAQ</a></router-link></li>
+            </ul>
+
+            <!-- Toolbar access if user is not connected -->
+            <ul class="navigation" v-else>
+              <li><router-link to='/'><a href="#">Home</a></router-link></li>
+              <li><router-link to='/login'><a href="#login">Login</a></router-link></li>
+              <li><router-link to='/login'><a href="#recipies">Recipies</a></router-link></li>
+              <li><router-link to="/login"><a href="#courses">Courses</a></router-link></li>
+              <li><router-link to="/about"><a href="#about">About</a></router-link></li>
+              <li><router-link to="/contact"><a href="#contact">Contact</a></router-link></li>
+              <li><router-link to='/faq'><a href="#faq">FAQ</a></router-link></li>
+          </ul>
+         </header>
+
+          <main>
+            <router-view
+              :connecte="connecte"
+              @inscription="inscription"
+              @connexion="connexion"
+              @lessons="lessons"
+            ></router-view>
+
+            <footer>
+              <p>Company © RecipEasy. Built by Cindy & Ishika</p>
+              <ul class="about">
+                <li>To know more about us, <router-link to='/about'><a href="#about">click here.</a></router-link></li>
+               </ul>
+            </footer>
+          </main>
+        </div>
+
+        <script src="/vue-application.js"></script>
+
+        <!-- Fonction for responsive toolbar -->
+        <script type="text/javascript">
+          function toggleMenu(){
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.navigation');      
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+          }
+        </script>
+        
+    </body>
+</html>
